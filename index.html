@@ -69,7 +69,7 @@
     <section id="education">
       <h2>Vzdelanie</h2>
       <p>
-        Základná škola, Dr. Daniela Fischera 2, Kežmarok
+        Základná škola, Dr. Daniela Fischera 2, Kežmarok <br>
         Súkromná stredná odborná škola, Ul. 29. augusta 4812, 058 01
       </p>
     </section>
@@ -91,17 +91,34 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <form>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" required>
+      <form method="post">
+            
+
+        <div class="mb-3 mt-5 text-center">
+          <label for="name" class="form-label">Meno</label>
+          <input type="text" name="first_name" id="first_name"class="form-control" id="formGroupExampleInput" placeholder="vlozte vase meno">
         </div>
-        <div class="form-group">
-          <label for="msg">Message:</label>
-          <textarea class="form-control" rows="5" id="msg"></textarea>
+        <div class="mb-3 text-center">
+          <label for="last_name" class="form-label">Priezvisko</label>
+          <input type="text" name="last_name" id="last_name" class="form-control" id="formGroupExampleInput2" placeholder="vlozte priezvisko">
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
-      </form>
+        <div class="mb-3 text-center">
+          <label for="email" class="form-label">emailova adresa</label>
+          <input type="text" name="email" id="email" class="form-control" id="formGroupExampleInput2" placeholder="UwU63@gmail.com">
+        </div>
+        <div class="mb-3 text-center">
+          <label for="message" class="form-label">Napiste nam spravu</label>
+          <textarea class="form-control" name="message" id="exampleFormControlTextarea1 message"  rows="3"></textarea>
+        </div>
+
+
+        
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-1">
+            <button type="submit" name="submit" id="submit" class="btn btn-success justify-content-center align-items-center">Odoslat</button> <br>
+            <!-- <button class="btn btn-success justify-content-center align-items-center"><a href="register.php" style="text-decoration: none; color: white;">registracia</a></button> -->
+          </div>
+        </div>
     </section>
 
   </div>

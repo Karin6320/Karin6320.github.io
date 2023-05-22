@@ -12,3 +12,7 @@
   width: 50%;
   margin-left: 25%;
 }
+
+body {
+  background-image: linear-gradient(0deg, rgba(100,181,243,0.9876283276982668) 0%, rgba(193,166,250,0.8615779075301996) 100%);
+}
