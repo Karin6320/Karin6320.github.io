@@ -5,3 +5,10 @@
 .date {
   min-width: 18rem;
 }
+
+.obrazok {
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-left: 25%;
+}
