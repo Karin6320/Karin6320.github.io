@@ -1,14 +1,14 @@
 $(document).ready(function () {
-  $("form").submit(handleSubmit);
-});
+    $("form").submit(handleSubmit);
+  });
 
-function handleSubmit(event) {
-  event.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
-  var message = $('#exampleFormControlTextarea1').val();
-  var email = $('#email').val();
-  
-  console.log(msg);
+    var message = $('#msg').val();
+    var email = $('#email').val();
+    
+    console.log(message);
 }
 
 const form = document.querySelector('form');
@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
 
   const firstName = document.getElementById('first_name').value;
   const email = document.getElementById('email').value;
-  const message = document.getElementById('exampleFormControlTextarea1').value;
+  const message = document.getElementById('msg').value;
 
   const requestBody = {
     systemEmail: 'karinlopatovska63@gmail.com',
@@ -48,7 +48,7 @@ form.addEventListener('submit', (e) => {
       } else if (data === 'Správa je prázdna, vaša žiadosť nebola odoslaná') {
 
       } else if (data === 'Email bol odoslany') {
-        // Handle successful email sending
+        
       }
     })
     .catch(error => {
