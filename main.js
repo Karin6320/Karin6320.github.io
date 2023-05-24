@@ -5,7 +5,7 @@ $(document).ready(function () {
 function handleSubmit(event) {
   event.preventDefault();
 
-  var msg = $('#msg').val();
+  var message = $('#exampleFormControlTextarea1').val();
   var email = $('#email').val();
   
   console.log(msg);
