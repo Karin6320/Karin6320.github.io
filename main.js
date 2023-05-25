@@ -13,12 +13,19 @@ $(document).ready(function () {
 
 const form = document.querySelector('form');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async(e) => {
   e.preventDefault();
 
   const firstName = document.getElementById('first_name').value;
   const email = document.getElementById('email').value;
   const message = document.getElementById('msg').value;
+  const challenge = document.getElementById('challenge').value;
+
+  if (challenge) {
+    alert('Spam Detektovany: Nechajte toto pole prazdne');
+    return; 
+  }
+
 
   const requestBody = {
     systemEmail: 'karinlopatovska63@gmail.com',
@@ -26,39 +33,32 @@ form.addEventListener('submit', (e) => {
     message: message
   };
 
-  fetch('https://emailsenderitweek.azurewebsites.net/api/ContactForm', {
+  let response = await fetch('https://emailsenderitweek.azurewebsites.net/api/ContactForm', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Accept: "application/json"
     },
     body: JSON.stringify(requestBody)
-  })
-    .then(response => {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw new Error('Error: ' + response.status);
-      }
-    })
+  });
 
+  let data = await response.json();
+    console.log (data);
     
-    .then(data => {
-      // Handle the response data
-      if (data === 'The entered system email is not valid') {
-        // Handle system email validation error
-        alert('Invalid System Email: The entered system email is not valid.');
-      } else if (data === 'The entered contact email is not valid') {
-        // Handle contact email validation error
-        alert('Invalid Contact Email: The entered contact email is not valid.');
-      } else if (data === 'The message is empty, your request has not been sent') {
-        // Handle empty message error
-        alert('Empty Message: The message is empty. Your request has not been sent.');
-      } else if (data === 'Email has been sent') {
-        // Handle successful email sending
-        alert('Email Sent: The email has been sent successfully.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    if (data === 'Zadaný systémový email nie je validný') {
+
+      alert('Zadaný systémový email nie je validný');
+
+    } else if (data === 'Zadaný kontaktný email nie je validný') {
+
+      alert('Zadaný kontaktný email nie je validný');
+
+    } else if (data === 'Správa je prázdna, vaša žiadosť nebola odoslaná') {
+
+      alert('Správa je prázdna, vaša žiadosť nebola odoslaná');
+    } else if (data === 'Email bol poslany') {
+
+      alert('Email bol odoslaný');
+      form.reset();
+    }
 });

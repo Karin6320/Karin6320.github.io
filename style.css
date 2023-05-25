@@ -230,3 +230,8 @@
   section.zaujmy h2 {
     margin-bottom: 2%;
   }
+
+
+  .challenge-text {
+    display: none;
+  }
