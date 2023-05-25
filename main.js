@@ -41,14 +41,35 @@ form.addEventListener('submit', (e) => {
       }
     })
     .then(data => {
-      if (data === 'Zadaný systémový email nie je validný') {
+      // Handle the response data
+      if (data === 'The entered system email is not valid') {
 
-      } else if (data === 'Zadaný kontaktný email nie je validný') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid System Email',
+          text: 'The entered system email is not valid.'
+        });
+      } else if (data === 'The entered contact email is not valid') {
 
-      } else if (data === 'Správa je prázdna, vaša žiadosť nebola odoslaná') {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid Contact Email',
+          text: 'The entered contact email is not valid.'
+        });
+      } else if (data === 'The message is empty, your request has not been sent') {
 
-      } else if (data === 'Email bol odoslany') {
-        
+        Swal.fire({
+          icon: 'error',
+          title: 'Empty Message',
+          text: 'The message is empty. Your request has not been sent.'
+        });
+      } else if (data === 'Email has been sent') {
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Email Sent',
+          text: 'The email has been sent successfully.'
+        });
       }
     })
     .catch(error => {
