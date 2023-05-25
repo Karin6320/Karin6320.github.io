@@ -40,36 +40,22 @@ form.addEventListener('submit', (e) => {
         throw new Error('Error: ' + response.status);
       }
     })
+
+    
     .then(data => {
       // Handle the response data
       if (data === 'The entered system email is not valid') {
-
-        Swal.fire({
-          icon: 'error',
-          title: 'Invalid System Email',
-          text: 'The entered system email is not valid.'
-        });
+        // Handle system email validation error
+        alert('Invalid System Email: The entered system email is not valid.');
       } else if (data === 'The entered contact email is not valid') {
-
-        Swal.fire({
-          icon: 'error',
-          title: 'Invalid Contact Email',
-          text: 'The entered contact email is not valid.'
-        });
+        // Handle contact email validation error
+        alert('Invalid Contact Email: The entered contact email is not valid.');
       } else if (data === 'The message is empty, your request has not been sent') {
-
-        Swal.fire({
-          icon: 'error',
-          title: 'Empty Message',
-          text: 'The message is empty. Your request has not been sent.'
-        });
+        // Handle empty message error
+        alert('Empty Message: The message is empty. Your request has not been sent.');
       } else if (data === 'Email has been sent') {
-
-        Swal.fire({
-          icon: 'success',
-          title: 'Email Sent',
-          text: 'The email has been sent successfully.'
-        });
+        // Handle successful email sending
+        alert('Email Sent: The email has been sent successfully.');
       }
     })
     .catch(error => {
