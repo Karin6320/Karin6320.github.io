@@ -56,7 +56,7 @@ form.addEventListener('submit', async(e) => {
     } else if (data === 'Správa je prázdna, vaša žiadosť nebola odoslaná') {
 
       alert('Správa je prázdna, vaša žiadosť nebola odoslaná');
-    } else if (data === 'Email bol poslany') {
+    } else if (data === 'Email bol odoslaný') {
 
       alert('Email bol odoslaný');
       form.reset();
